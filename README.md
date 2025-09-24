@@ -1,0 +1,2 @@
+# StatCalc
+Kalkulator Statistika
