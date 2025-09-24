@@ -13,8 +13,11 @@ class kalkulator:
             print(e)
 
     def lihatDataset(self) -> None:
-        for key, value in self.dataset.items():
-            print(f"{key} => {value}")
+        if not self.dataset:
+            print("Kosong. Belum ada Dataset!")
+        else:
+            for key, value in self.dataset.items():
+                print(f"{key} => {value}")
 
     def hapusDataset(self, nama:str) -> None:
         try:
@@ -26,16 +29,31 @@ class kalkulator:
         except ValueError as e:
             print(e)
     
+    def inputData(self, nama) -> None:
+        while True:
+            try:
+                input_data = input("masukkan data (contoh: 1,2,3) : ").replace(',',' ')
+                data = [float(data) for data in input_data.split()]
+                if not data:
+                    print("Input tidak boleh kosong. Coab lagi!")
+                    continue
+                self.dataset[nama] = data
+                break
+            except ValueError:
+                print("Input tidak valid. Pastikan semua data adalah angka!")
+            except Exception as e:
+                print(e)
+                
+    
 
 def main():
     kalk = kalkulator()
 
     kalk.setNamaDataset("tinggi")
-    kalk.setNamaDataset("berat")
     kalk.lihatDataset()
-    kalk.setNamaDataset("tinggi")
-    kalk.hapusDataset("berat")
-    kalk.hapusDataset("tinggi badan")
+    kalk.inputData('tinggi')
+    kalk.lihatDataset()
+    kalk.hapusDataset("tinggi")
     kalk.lihatDataset()
 
 if __name__ == "__main__":
