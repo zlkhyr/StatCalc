@@ -66,15 +66,30 @@ class kalkulator:
 
 def main():
     kalk = kalkulator()
-
-    kalk.menu()
-
-    # while True:
-    #     try:
-    #         print
-    #     except (ValueError, KeyError) as e:
-    #         print(e)
-    #         continue
+    while True:
+        try:
+            kalk.menu()
+            try:
+                pilihan = int(input("No : "))
+            except ValueError:
+                raise ValueError("Input tidak valid. Input angka 0-5!")
+            match pilihan:
+                case 0:
+                    print("Keluar")
+                    break
+                case 1:
+                    pass
+                case 2:
+                    pass
+                case 3:
+                    pass
+                case 4:
+                    pass
+                case 5:
+                    pass
+        except (ValueError, KeyError) as e:
+            print(e)
+            continue
 
 
 if __name__ == "__main__":
