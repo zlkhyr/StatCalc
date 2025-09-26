@@ -63,6 +63,8 @@ class kalkulator:
             raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
         
         return sum(self.dataset[nama])/len(self.dataset[nama])
+    
+    # perhitungan statistika lainya ...
 
 def main():
     kalk = kalkulator()
@@ -72,25 +74,34 @@ def main():
             try:
                 pilihan = int(input("No : "))
             except ValueError:
-                raise ValueError("Input tidak valid. Input angka 0-5!")
+                print("Input tidak valid. Input angka 0-5!")
+                continue
             match pilihan:
                 case 0:
                     print("Keluar")
                     break
                 case 1:
-                    pass
+                    nama = input("Nama Dataset : ")
+                    kalk.setNamaDataset(nama)
                 case 2:
-                    pass
+                    kalk.lihatDataset()
                 case 3:
-                    pass
+                    nama = input("Nama Dataset")
+                    kalk.inputData(nama)
                 case 4:
-                    pass
+                    nama = input("Nama Dataset : ")
+                    print(f"Mean : {kalk.mean(nama)}")
                 case 5:
+                    nama = input("Nama Dataset : ")
+                    kalk.hapusDataset(nama)
+                case 6:
+                    # fungsi lain
                     pass
+                case _:
+                    print(f"tidak ada menu ke-{pilihan}")
         except (ValueError, KeyError) as e:
             print(e)
             continue
-
 
 if __name__ == "__main__":
     main()
