@@ -79,52 +79,62 @@ class kalkulator:
         
     def mode(self, nama) -> int:
         pass
-
+    
+    def range(self, nama) -> int:
+        if nama not in self.dataset:
+            raise KeyError(f"Dataset {nama} tidak ditemukan!")
+        
+        if not self.dataset[nama]:
+            raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
+        
+        return max(self.dataset[nama]) - min(self.dataset[nama])
+    
     # perhitungan statistika lainya ...
 
 def main():
     kalk = kalkulator()
     #test
-    # kalk.setNamaDataset('tinggi')
-    # kalk.inputData('tinggi')
-    # print(kalk.median("tinggi"))
-    # print(kalk.mean("tinggi"))
+    kalk.setNamaDataset('tinggi')
+    kalk.inputData('tinggi')
+    print(kalk.median("tinggi"))
+    print(kalk.mean("tinggi"))
+    print(kalk.range("tinggi"))
     
     # Interaksi dengan kalkulator melalui CLI
-    while True:
-        try:
-            kalk.menu()
-            try:
-                pilihan = int(input("No : "))
-            except ValueError:
-                print("Input tidak valid. Input angka 0-5!")
-                continue
-            match pilihan:
-                case 0:
-                    print("Keluar")
-                    break
-                case 1:
-                    nama = input("Nama Dataset : ")
-                    kalk.setNamaDataset(nama)
-                case 2:
-                    kalk.lihatDataset()
-                case 3:
-                    nama = input("Nama Dataset")
-                    kalk.inputData(nama)
-                case 4:
-                    nama = input("Nama Dataset : ")
-                    print(f"Mean : {kalk.mean(nama)}")
-                case 5:
-                    nama = input("Nama Dataset : ")
-                    kalk.hapusDataset(nama)
-                case 6:
-                    # fungsi lain
-                    pass
-                case _:
-                    print(f"tidak ada menu ke-{pilihan}")
-        except (ValueError, KeyError) as e:
-            print(e)
-            continue
+    # while True:
+    #     try:
+    #         kalk.menu()
+    #         try:
+    #             pilihan = int(input("No : "))
+    #         except ValueError:
+    #             print("Input tidak valid. Input angka 0-5!")
+    #             continue
+    #         match pilihan:
+    #             case 0:
+    #                 print("Keluar")
+    #                 break
+    #             case 1:
+    #                 nama = input("Nama Dataset : ")
+    #                 kalk.setNamaDataset(nama)
+    #             case 2:
+    #                 kalk.lihatDataset()
+    #             case 3:
+    #                 nama = input("Nama Dataset")
+    #                 kalk.inputData(nama)
+    #             case 4:
+    #                 nama = input("Nama Dataset : ")
+    #                 print(f"Mean : {kalk.mean(nama)}")
+    #             case 5:
+    #                 nama = input("Nama Dataset : ")
+    #                 kalk.hapusDataset(nama)
+    #             case 6:
+    #                 # fungsi lain
+    #                 pass
+    #             case _:
+    #                 print(f"tidak ada menu ke-{pilihan}")
+    #     except (ValueError, KeyError) as e:
+    #         print(e)
+    #         continue
 
 if __name__ == "__main__":
     main()
