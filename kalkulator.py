@@ -89,6 +89,21 @@ class kalkulator:
         
         return max(self.dataset[nama]) - min(self.dataset[nama])
     
+    def quartil(self, nama, kuartil) -> float:
+        pass
+
+    def iqr(self, nama) -> float:
+        pass
+
+    def varians(self, nama) -> float:
+        pass
+
+    def standard_deviation(self, nama) -> float:
+        pass
+
+    def summary_statistics(self, nama) -> float:
+        pass
+    
     # perhitungan statistika lainya ...
 
 def main():
