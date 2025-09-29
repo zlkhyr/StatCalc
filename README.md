@@ -1,7 +1,5 @@
 # StatCalc
-Program ini adalah kalkulator statistik sederhana berbasis CLI (Command Line Interface) yang memungkinkan pengguna untuk membuat dataset, memasukkan data numerik, dan menghitung berbagai ukuran statistik dasar seperti mean, median, dan range.
-
-Program ini dapat dikembangkan lebih lanjut untuk menghitung mode, quartil, IQR, varians, standar deviasi, dan ringkasan statistik.
+Program ini adalah kalkulator statistik sederhana berbasis CLI (Command Line Interface) yang memungkinkan pengguna untuk membuat dataset, memasukkan data numerik, dan menghitung berbagai ukuran statistik dasar seperti mean, median, range, mode, quartil, IQR, varians, standar deviasi, dan ringkasan statistik.
 
 ## 🚀 Fitur
 - Membuat dataset baru dengan nama tertentu.
