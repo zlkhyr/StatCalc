@@ -77,8 +77,19 @@ class kalkulator:
         else:
             return (data[int(len(data)/2)] + data[int(len(data)/2)-1])/2 
         
-    def mode(self, nama) -> int:
-        pass
+    def mode(self, nama) -> list:
+        if nama not in self.dataset:
+            raise KeyError(f"Dataset {nama} tidak ditemukan!")
+        
+        if not self.dataset[nama]:
+            raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
+        
+        freq = {}
+        for i in self.dataset[nama]:
+            freq[i]=freq.get(i, 0) + 1
+
+        max_freq = max(freq.values())
+        return [key for key, value in freq.items() if value == max_freq]
     
     def range(self, nama) -> int:
         if nama not in self.dataset:
@@ -114,6 +125,7 @@ def main():
     print(kalk.median("tinggi"))
     print(kalk.mean("tinggi"))
     print(kalk.range("tinggi"))
+    print(kalk.mode("tinggi"))
     
     # Interaksi dengan kalkulator melalui CLI
     # while True:
