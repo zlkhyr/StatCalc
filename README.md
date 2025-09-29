@@ -9,5 +9,11 @@ Program ini adalah kalkulator statistik sederhana berbasis CLI (Command Line Int
 - Mean (rata-rata)
 - Median
 - Range
+- Mode
+- Quartiles
+- IQR
+- Varians
+- Standard deviation
+- Summary statistics
 - Menghapus dataset.
 - CLI interaktif dengan menu pilihan.
