@@ -132,15 +132,31 @@ class kalkulator:
 
 
     def iqr(self, nama) -> float:
+        if nama not in self.dataset:
+            raise KeyError(f"Dataset {nama} tidak ditemukan!")
+        
+        if not self.dataset[nama]:
+            raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
+        
         return self.quartil(nama, 3) - self.quartil(nama, 1)
 
     def varians(self, nama) -> float:
-        pass
+        if nama not in self.dataset:
+            raise KeyError(f"Dataset {nama} tidak ditemukan!")
+        
+        if not self.dataset[nama]:
+            raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
+        
+        rata2 = self.mean(nama)
+        xi_x2 = []
+        for xi in self.dataset[nama]:
+            xi_x2.append((xi - rata2)**2)
+        return sum(xi_x2)/(len(self.dataset[nama])-1)
 
     def standard_deviation(self, nama) -> float:
         pass
 
-    def summary_statistics(self, nama) -> float:
+    def summary_statistics(self, nama) -> None:
         pass
     
     # perhitungan statistika lainya ...
