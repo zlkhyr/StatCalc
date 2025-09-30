@@ -101,7 +101,35 @@ class kalkulator:
         return max(self.dataset[nama]) - min(self.dataset[nama])
     
     def quartil(self, nama, kuartil) -> float:
-        pass
+        if nama not in self.dataset:
+            raise KeyError(f"Dataset {nama} tidak ditemukan!")
+        
+        if not self.dataset[nama]:
+            raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
+        
+        data = sorted(self.dataset[nama])
+        n = len(data)
+        tengah = n // 2
+
+        if n % 2 == 1:
+            bawah = data[:tengah]
+            atas = data[tengah + 1:]
+        else:
+            bawah = data[:tengah]
+            atas = data[tengah:]
+
+        if kuartil == 1:
+            data = bawah
+        if kuartil == 2:
+            pass
+        if kuartil == 3:
+            data = atas
+
+        if len(data)%2 == 1:
+            return data[int(len(data)/2)]
+        else:
+            return (data[int(len(data)/2)] + data[int(len(data)/2)-1])/2 
+
 
     def iqr(self, nama) -> float:
         pass
@@ -124,8 +152,9 @@ def main():
     kalk.inputData('tinggi')
     print(kalk.median("tinggi"))
     print(kalk.mean("tinggi"))
-    print(kalk.range("tinggi"))
-    print(kalk.mode("tinggi"))
+    print(kalk.quartil("tinggi", 1))
+    print(kalk.quartil("tinggi", 2))
+    print(kalk.quartil("tinggi", 3))
     
     # Interaksi dengan kalkulator melalui CLI
     # while True:
