@@ -132,7 +132,7 @@ class kalkulator:
 
 
     def iqr(self, nama) -> float:
-        pass
+        return self.quartil(nama, 3) - self.quartil(nama, 1)
 
     def varians(self, nama) -> float:
         pass
