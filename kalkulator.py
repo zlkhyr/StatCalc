@@ -64,18 +64,7 @@ class kalkulator:
         return sum(self.dataset[nama])/len(self.dataset[nama])
     
     def median(self, nama) -> int:
-        if nama not in self.dataset:
-            raise KeyError(f"Dataset {nama} tidak ditemukan!")
-        
-        if not self.dataset[nama]:
-            raise ValueError("Tidak bisa melakukan perhitungan pada dataset kosong")
-        
-        data = sorted(self.dataset[nama])
-
-        if len(data)%2 == 1:
-            return data[int(len(data)/2)]
-        else:
-            return (data[int(len(data)/2)] + data[int(len(data)/2)-1])/2 
+        return self.quartil(nama, 2) 
         
     def mode(self, nama) -> list:
         if nama not in self.dataset:
