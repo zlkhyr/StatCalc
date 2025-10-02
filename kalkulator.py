@@ -145,7 +145,23 @@ class kalkulator:
         return self.varians(nama) ** (1/2)
 
     def summary_statistics(self, nama) -> None:
-        pass
+        menu = [
+            ["Mean", self.mean(nama)],
+            ["Median", self.median(nama)],
+            ["Mode", self.mode(nama)],
+            ["Range", self.range(nama)],
+            ["Quartile 1", self.quartil(nama, 1)],
+            ["Quartile 2", self.quartil(nama, 2)],
+            ["Quartile 3", self.quartil(nama, 3)],
+            ["IQR", self.iqr(nama)],
+            ["varians", self.varians(nama)],
+            ["Standard deviation", self.standard_deviation(nama)]
+        ]
+
+        print("=" * 50)
+        for row in menu:
+            print(f"{row[0]:<20} : {row[1]}")
+        print("=" * 50)
     
     # perhitungan statistika lainya ...
 
@@ -154,11 +170,7 @@ def main():
     #test
     kalk.setNamaDataset('tinggi')
     kalk.inputData('tinggi')
-    print(kalk.median("tinggi"))
-    print(kalk.mean("tinggi"))
-    print(kalk.quartil("tinggi", 1))
-    print(kalk.quartil("tinggi", 2))
-    print(kalk.quartil("tinggi", 3))
+    kalk.summary_statistics('tinggi')
     
     # Interaksi dengan kalkulator melalui CLI
     # while True:
