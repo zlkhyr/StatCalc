@@ -7,9 +7,17 @@ class kalkulator:
             ["No", "Menu", "Deskripsi"],
             ["1", "Buat Dataset", "Membuat dataset baru"],
             ["2", "Lihat Dataset", "Menampilkan semua dataset"],
-            ["3", "Input Data", "Memasukkan data ke dalam dataset"],
-            ["4", "Hitung Mean", "Menghitung rata-rata data"],
-            ["5", "Hapus Dataset", "Menghapus dataset tertentu"],
+            ["3", "Input Data", "Memasukkan data ke dataset"],
+            ["4", "Mean", "Menghitung rata-rata"],
+            ["5", "Median", "Menghitung median"],
+            ["6", "Mode", "Menghitung mode"],
+            ["7", "Range", "Menghitung range"],
+            ["8", "Quartile", "Menghitung quartile 1/2/3"],
+            ["9", "IQR", "Menghitung IQR"],
+            ["10", "Varians", "Menghitung varians"],
+            ["11", "Std", "Menghitung standard deviation"],
+            ["12", "Summary", "Menghitung rata-rata data"],
+            ["13", "Hapus Dataset", "Menghapus dataset tertentu"],
             ["0", "Keluar", "Keluar dari program"]
         ]
 
@@ -157,45 +165,57 @@ class kalkulator:
 def main():
     kalk = kalkulator()
     #test
-    kalk.setNamaDataset('tinggi')
-    kalk.inputData('tinggi')
-    kalk.summary_statistics('tinggi')
+    kalk.menu()
     
     # Interaksi dengan kalkulator melalui CLI
-    # while True:
-    #     try:
-    #         kalk.menu()
-    #         try:
-    #             pilihan = int(input("No : "))
-    #         except ValueError:
-    #             print("Input tidak valid. Input angka 0-5!")
-    #             continue
-    #         match pilihan:
-    #             case 0:
-    #                 print("Keluar")
-    #                 break
-    #             case 1:
-    #                 nama = input("Nama Dataset : ")
-    #                 kalk.setNamaDataset(nama)
-    #             case 2:
-    #                 kalk.lihatDataset()
-    #             case 3:
-    #                 nama = input("Nama Dataset")
-    #                 kalk.inputData(nama)
-    #             case 4:
-    #                 nama = input("Nama Dataset : ")
-    #                 print(f"Mean : {kalk.mean(nama)}")
-    #             case 5:
-    #                 nama = input("Nama Dataset : ")
-    #                 kalk.hapusDataset(nama)
-    #             case 6:
-    #                 # fungsi lain
-    #                 pass
-    #             case _:
-    #                 print(f"tidak ada menu ke-{pilihan}")
-    #     except (ValueError, KeyError) as e:
-    #         print(e)
-    #         continue
+    while True:
+        try:
+            # kalk.menu()
+            try:
+                pilihan = int(input("No : "))
+            except ValueError:
+                print("Input tidak valid. Input angka 0-5!")
+                continue
+            match pilihan:
+                case 0:
+                    print("Keluar")
+                    break
+                case 1:
+                    nama = input("Nama Dataset : ")
+                    kalk.setNamaDataset(nama)
+                case 2:
+                    kalk.lihatDataset()
+                case 3:
+                    nama = input("Nama Dataset : ")
+                    kalk.inputData(nama)
+                case 4:
+                    nama = input("Nama Dataset : ")
+                    print(f"Mean : {kalk.mean(nama)}")
+                case 5:
+                    nama = input("Nama Dataset : ")
+                    print(f"Median : {kalk.median(nama)}")
+                case 6:
+                    nama = input("Nama Dataset : ")
+                    print(f"Mode : {kalk.mode(nama)}")
+                case 7:
+                    pass
+                case 8:
+                    pass
+                case 9:
+                    pass
+                case 10:
+                    pass
+                case 11:
+                    pass
+                case 12:
+                    pass
+                case 13:
+                    pass
+                case _:
+                    print(f"tidak ada menu ke-{pilihan}")
+        except (ValueError, KeyError) as e:
+            print(e)
+            continue
 
 if __name__ == "__main__":
     main()
