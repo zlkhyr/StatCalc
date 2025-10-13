@@ -185,7 +185,7 @@ def main():
                     kalk.setNamaDataset(nama)
                 case 2:
                     kalk.lihatDataset()
-                case 3|4|5|6:
+                case 3|4|5|6|7|8|9|10|11|12|13:
                     nama = input("Nama Dataset : ")
                     if pilihan == 3:
                         kalk.inputData(nama)
@@ -195,6 +195,20 @@ def main():
                         print(f"Median : {kalk.median(nama)}")
                     elif pilihan == 6:
                         print(f"Mode : {kalk.mode(nama)}")
+                    elif pilihan == 7:
+                        print(f"Range : {kalk.range(nama)}")
+                    elif pilihan == 8:
+                        print(f"Quartile : {kalk.quartil(nama, kuartil=1)}")
+                    elif pilihan == 9:
+                        print(f"IQR : {kalk.iqr(nama)}")
+                    elif pilihan == 10:
+                        print(f"Varians : {kalk.varians(nama)}")
+                    elif pilihan == 11:
+                        print(f"Standar deviasi: {kalk.standard_deviation(nama)}")
+                    elif pilihan == 12:
+                        kalk.summary_statistics(nama)
+                    elif pilihan == 13:
+                        kalk.hapusDataset(nama)
                 case _:
                     print(f"tidak ada menu ke-{pilihan}")
         except (ValueError, KeyError) as e:
