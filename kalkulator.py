@@ -73,7 +73,8 @@ class kalkulator:
     
     def median(self, nama) -> int:
         return self.quartil(nama, 2) 
-        
+
+    #Masih belum sempurna    
     def mode(self, nama) -> list:
         if nama not in self.dataset:
             raise KeyError(f"Dataset {nama} tidak ditemukan!")
@@ -170,7 +171,6 @@ def main():
     # Interaksi dengan kalkulator melalui CLI
     while True:
         try:
-            # kalk.menu()
             try:
                 pilihan = int(input("No : "))
             except ValueError:
@@ -185,32 +185,16 @@ def main():
                     kalk.setNamaDataset(nama)
                 case 2:
                     kalk.lihatDataset()
-                case 3:
+                case 3|4|5|6:
                     nama = input("Nama Dataset : ")
-                    kalk.inputData(nama)
-                case 4:
-                    nama = input("Nama Dataset : ")
-                    print(f"Mean : {kalk.mean(nama)}")
-                case 5:
-                    nama = input("Nama Dataset : ")
-                    print(f"Median : {kalk.median(nama)}")
-                case 6:
-                    nama = input("Nama Dataset : ")
-                    print(f"Mode : {kalk.mode(nama)}")
-                case 7:
-                    pass
-                case 8:
-                    pass
-                case 9:
-                    pass
-                case 10:
-                    pass
-                case 11:
-                    pass
-                case 12:
-                    pass
-                case 13:
-                    pass
+                    if pilihan == 3:
+                        kalk.inputData(nama)
+                    elif pilihan == 4:
+                        print(f"Mean : {kalk.mean(nama)}")
+                    elif pilihan == 5:
+                        print(f"Median : {kalk.median(nama)}")
+                    elif pilihan == 6:
+                        print(f"Mode : {kalk.mode(nama)}")
                 case _:
                     print(f"tidak ada menu ke-{pilihan}")
         except (ValueError, KeyError) as e:
